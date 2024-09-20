@@ -1,5 +1,4 @@
 --[[
-
 =====================================================================
 ==================== READ THIS BEFORE CONTINUING ====================
 =====================================================================
@@ -189,7 +188,6 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
-
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -258,6 +256,21 @@ require('lazy').setup({
 
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
   --
+  {
+    'nvim-neo-tree/neo-tree.nvim',
+    branch = 'v3.x',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
+      'MunifTanjim/nui.nvim',
+      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+    },
+  },
+  --
+  {
+  -- amongst your other plugins
+  {'akinsho/toggleterm.nvim', version = "*", config = true},
+  },
   -- This is often very useful to both group configuration, as well as handle
   -- lazy loading plugins that don't need to be loaded immediately at startup.
   --
@@ -317,10 +330,18 @@ require('lazy').setup({
         { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
         { '<leader>d', group = '[D]ocument' },
         { '<leader>r', group = '[R]ename' },
+        { '<leader>q', group = '[Q]uit' },
+        { '<leader>f', group = '[F]ile' },
         { '<leader>s', group = '[S]earch' },
+        { '<leader>b', group = '[B]uffer' },
         { '<leader>w', group = '[W]orkspace' },
         { '<leader>t', group = '[T]oggle' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+        { '<leader>e', '<cmd>Neotree toggle<cr>', desc = 'Open File Explorer', mode = { 'n', 'v' } },
+        { '<leader>qq', '<cmd>q<cr>', desc = 'Quit', mode = { 'n', 'v' } },
+        { '<leader>q!', '<cmd>q!<cr>', desc = 'Quit Without Saving', mode = { 'n', 'v' } },
+        { '<leader>fw', '<cmd>w<cr>', desc = 'Save', mode = { 'n', 'v' } },
+        { '<leader>qw', '<cmd>wq<cr>', desc = 'Save & Quit', mode = { 'n', 'v' } },
       },
     },
   },
