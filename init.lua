@@ -268,8 +268,7 @@ require('lazy').setup({
   },
   --
   {
-  -- amongst your other plugins
-  {'akinsho/toggleterm.nvim', version = "*", config = true},
+    { 'akinsho/toggleterm.nvim', version = '*', config = true },
   },
   -- This is often very useful to both group configuration, as well as handle
   -- lazy loading plugins that don't need to be loaded immediately at startup.
